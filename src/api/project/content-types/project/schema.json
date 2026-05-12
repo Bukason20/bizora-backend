@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "singularName": "project",
+    "pluralName": "projects",
+    "displayName": "project"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "businessName": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "businessName",
+      "required": true
+    },
+    "editToken": {
+      "type": "uid",
+      "required": true
+    },
+    "projectStatus": {
+      "type": "enumeration",
+      "required": true,
+      "default": "pending",
+      "enum": [
+        "pending",
+        "trial",
+        "active",
+        "expired"
+      ]
+    },
+    "trialStartsAt": {
+      "type": "datetime"
+    },
+    "trialEndsAt": {
+      "type": "datetime"
+    },
+    "feedback": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::feedback.feedback",
+      "mappedBy": "project"
+    },
+    "template": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::template.template",
+      "inversedBy": "projects"
+    },
+    "data": {
+      "type": "json",
+      "required": true
+    },
+    "whatsapp": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email"
+    }
+  }
+}
