@@ -548,8 +548,6 @@ export interface ApiTemplateTemplate extends Struct.CollectionTypeSchema {
       ]
     > &
       Schema.Attribute.Required;
-    previewImage: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
     projects: Schema.Attribute.Relation<'oneToMany', 'api::project.project'>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
